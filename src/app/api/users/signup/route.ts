@@ -26,6 +26,7 @@ export async function POST(request:NextRequest) {
             usertype,
             password:hashedPassword,  
         })
+
         const savedUser =await newUser.save()
         console.log("saver user",savedUser);
         return NextResponse.json({
@@ -33,6 +34,7 @@ export async function POST(request:NextRequest) {
             success:true,
             data:savedUser
         })
+        
     }catch(error:any){
         return NextResponse.json({error:error.message},
             {status:500})
